@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>وب‌سایت طاها یداله تاج</title>
+
+  <!-- لینک فایل CSS -->
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+
+  <!-- 🔹 اضافه کردن لوگو در تب مرورگر -->
+  <link rel="icon" type="profile/jpg" href="profile.jpg">
+</head>
+
+<body class="dark-theme">
+
+  <!-- افکت پس‌زمینه و نور موس -->
+  <div class="background-glow"></div>
+  <div id="cursor-glow"></div>
+
+  <header class="header">
+    <div class="profile">
+      <img src="profile.jpg" alt="طاها یداله تاج">
+      <h1>طاها یداله تاج</h1>
+    </div>
+
+    <nav class="navbar">
+      <ul>
+        <li><a href="about.html">درباره من</a></li>
+        <li><a href="contact.html">ارتباطات</a></li>
+
+        <li class="dropdown">
+          <button id="dropdownBtn" class="dropbtn">وبلاگ‌های حاضر ▾</button>
+          <ul id="dropdownMenu" class="dropdown-content">
+            <li><a href="blog1.html">وبلاگ شماره ۱</a></li>
+            <li><a href="blog2.html">وبلاگ شماره ۲</a></li>
+            <li><a href="blog3.html">وبلاگ شماره ۳</a></li>
+            <li><a href="blog4.html">وبلاگ شماره ۴</a></li>
+          </ul>
+        </li>
+
+        <li><a href="gallery.html">گالری</a></li>
+        <li><a href="services.html">خدمات</a></li>
+        <li><a href="resume.html">رزومه</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="intro fade-in">
+    <h2>به وب‌سایت من خوش آمدید</h2>
+    <p>جایی برای همه ی مردم ایران</p>
+    <p>جمعی از برنامه نویسان و طراحان مبتدی تا پیشرفته در کنار هم هستیم </p>
+    <p>در اینجا شما با پروژه ها و ساخته های خود به دیگران کمک میکنید و از بقیه هم کمک میگیرید</p>
+    <p>در این سایت همه چیز به صورت رایگان است و به راحتی میتوانید مشکلات خود را بیان و باگ های خود را برطرف کنید</p>
+    <p>میتوانید پروژه های خود را با یک دیگر به اشتراک بگزارید</p>
+  </section>
+
+  <section class="scroll-section fade-up">
+    <h2>کنار هم و با هم</h2>
+    <p>امیدوارم که بتوانیم درکنار هم پروژه ها رو پیش ببریم و مشکلات رو حل کنیم</p>
+    <p>در این اینجا ما سعی داریم یک خانواده درست کنیم و دانشمان را در کنار هم بگذاریم </p>
+    <p>شما میتوانید در بخش ارتباطات با ما و یکدیگر ارتباط برقرار کنید</p>
+    <p>در پیام رسان های مختلف میتوانید می توانید گفت و گو کنید که در بخش ارتباطات میباشد</p>
+    <p>📌📌 هر گونه فعالیت غیر اخلاقی و مخالف قانون ممنوع میباشد در صورت مشاهده ی هرگونه </p>
+    <p>فعالیت غیر قانونی و اخلاقی کاربر از رسانه ها حذف خواهد شد</p>
+  </section>
+
+  <section class="scroll-section fade-up">
+    <h2>جمع بندی</h2>
+    <p>هدف این سایت ایجاد یک خانواده ی برنامه نویس و طراح است ما با کمک یکدیگر</p>
+    <p>میتوانیم مشکلات خود را حل کنیم و به دانش یکدیگر اضافه کنیم</p>
+    <p>امیدوارم توانسته باشم کمی به شما دوستان عزیز کمک کنم ❤️</p>
+  </section>
+
+ <section class="scroll-section fade-up">
+    <h2></h2>
+    
+  </section>
+
+  <footer>
+    <p>© ۲۰۲۵ طاها یداله تاج</p>
+  </footer>
+
+  <script>
+    // 🔸 باز و بسته شدن منوی وبلاگ‌ها
+    const dropdownBtn = document.getElementById("dropdownBtn");
+    const dropdownMenu = document.getElementById("dropdownMenu");
+
+    dropdownBtn.addEventListener("click", () => {
+      dropdownMenu.classList.toggle("show");
+    });
+
+    window.addEventListener("click", (e) => {
+      if (!dropdownBtn.contains(e.target)) dropdownMenu.classList.remove("show");
+    });
+
+    // 🔸 انیمیشن هنگام اسکرول
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-in, .fade-up').forEach(section => observer.observe(section));
+
+    // 🔸 افکت حرکت نرم بخش‌ها هنگام اسکرول
+    let scrollPos = 0;
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('.scroll-section');
+      scrollPos = window.scrollY;
+      sections.forEach(sec => {
+        const speed = 0.2;
+        sec.style.transform = `translateY(${scrollPos * speed}px)`;
+      });
+    });
+
+    // 🔸 افکت نور موس
+    const cursorGlow = document.getElementById("cursor-glow");
+    document.addEventListener("mousemove", (e) => {
+      cursorGlow.style.left = `${e.clientX}px`;
+      cursorGlow.style.top = `${e.clientY}px`;
+    });
+
+    // 🔸 جلوگیری از راست‌کلیک و کشیدن تصویر پروفایل
+    const profileImg = document.querySelector('.profile img');
+    profileImg.addEventListener('contextmenu', e => e.preventDefault());
+    profileImg.addEventListener('dragstart', e => e.preventDefault());
+  </script>
+
+</body>
+</html>

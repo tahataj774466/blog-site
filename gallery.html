@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>گالری - طاها یداله تاج</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="profile/jpg" href="profile.jpg">
+</head>
+<body class="dark-theme">
+
+  <header class="header">
+    <h1>گالری</h1>
+    <a href="index.html" class="back-btn">⬅ بازگشت</a>
+  </header>
+
+  <section class="gallery fade-in">
+    <div class="gallery-grid">
+      <!-- 20 عکس با توضیح کوتاه و جلوگیری از کشیدن/کپی -->
+      <div class="gallery-item fade-up">
+        <img src="img1.jpg" alt="تصویر 1" draggable="false" ondragstart="return false;">
+        <p>نمایش چشم رباتیک</p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img2.jpg" alt="تصویر 2" draggable="false" ondragstart="return false;">
+        <p>پردازش تصویر</p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img3.jpg" alt="تصویر 3" draggable="false" ondragstart="return false;">
+        <p>حسگر ژیروسکوپ</p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img4.jpg" alt="تصویر 4" draggable="false" ondragstart="return false;">
+        <p>طراحی سه بعدی ماشین کنترلی</p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img5.jpg" alt="تصویر 5" draggable="false" ondragstart="return false;">
+        <p>ماشین حساب </p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img6.jpg" alt="تصویر 6" draggable="false" ondragstart="return false;">
+        <p>قالب</p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img7.jpg" alt="تصویر 7" draggable="false" ondragstart="return false;">
+        <p>طراحی سه بعدی</p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img8.jpg" alt="تصویر 8" draggable="false" ondragstart="return false;">
+        <p>چرخ دنده صنعتی</p>
+      </div>
+      <div class="gallery-item fade-up">
+        <img src="img9.jpg" alt="تصویر 9" draggable="false" ondragstart="return false;">
+        <p>توضیح تصویر 9</p>
+      </div>
+     
+    
+  </section>
+
+  <!-- Lightbox بزرگنمایی عکس -->
+  <div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="" alt="تصویر بزرگ" draggable="false" ondragstart="return false;">
+    <p class="lightbox-caption"></p>
+  </div>
+
+  <script>
+    // انیمیشن fade-up هنگام اسکرول
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.fade-up').forEach(item => observer.observe(item));
+
+    // Lightbox بزرگنمایی
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.querySelector('.lightbox-img');
+    const lightboxCaption = document.querySelector('.lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox .close');
+
+    document.querySelectorAll('.gallery-item img').forEach(img => {
+      img.addEventListener('click', () => {
+        lightbox.style.display = 'flex';
+        lightboxImg.src = img.src;
+        lightboxCaption.textContent = img.nextElementSibling.textContent;
+      });
+    });
+
+    closeBtn.addEventListener('click', () => lightbox.style.display = 'none');
+    lightbox.addEventListener('click', e => {
+      if(e.target === lightbox) lightbox.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدمات</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="profile/jpg" href="profile.jpg">
+</head>
+<body class="dark-theme">
+  <header class="header">
+    <h1>خدمات</h1>
+    <a href="index.html" class="back-btn">⬅ بازگشت</a>
+  </header>
+
+  <section class="intro fade-in">
+    <div class="services-card">
+      <ul>
+        <li>بهینه‌سازی برای موتورهای جستجو (SEO)</li>
+        <li>طراحی و توسعه وب‌سایت با HTML, CSS, JavaScript</li>
+        <li>رباتیک و برنامه نویسی سخت افزار آردوینو, رسپبری پای, esp</li>
+        <li>تجربه در طراحی UI/UX و تجربه کاربری</li>
+        <li>بهینه‌سازی وب‌سایت و SEO</li>
+        <li>آموزش برنامه‌نویسی و پروژه‌های آموزشی</li>
+        <li>برنامه نویس python, c_c++, js, arduino, html_css</li>
+        <li>طراح سه بعدی با نرم افزار catia</li>
+      </ul>
+      <div class="phone" onclick="copyPhone()">09933660582</div>
+    </div>
+  </section>
+
+  <script>
+    function copyPhone() {
+      const phoneText = document.querySelector('.services-card .phone').innerText;
+      navigator.clipboard.writeText(phoneText).then(() => {
+        alert('شماره تلفن کپی شد: ' + phoneText);
+      });
+    }
+  </script>
+</body>
+</html>

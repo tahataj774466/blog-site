@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تماس با من - طاها یداله تاج</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="profile/jpg" href="profile.jpg">
+</head>
+<body class="dark-theme">
+
+  <header class="header">
+    <h1>تماس با من</h1>
+    <a href="index.html" class="back-btn">⬅ بازگشت</a>
+  </header>
+
+  <section class="intro fade-in">
+    <div class="contact-card">
+      <p class="copy-item" data-copy="example@email.com">ایمیل: example@email.com</p>
+      <p class="copy-item" data-copy="09933660582">شماره تماس: 09933660582 📞</p>
+      <p class="copy-item" data-copy="https://wa.me/09367639452">واتساپ: 09367639452 📞</p>
+      <p class="copy-item" data-copy="https://youtube.com/@yourchannel">یوتیوب: کانال من</p>
+      <p class="copy-item" data-copy="https://instagram.com/yourprofile">اینستاگرام: @yourprofile</p>
+      <p class="copy-item" data-copy="https://t.me/yourusername">تلگرام: @yourusername</p>
+      <p class="copy-item" data-copy="تهران، ایران">آدرس: تهران، ایران</p>
+    </div>
+  </section>
+
+  <script>
+    // کپی کردن متن با کلیک
+    document.querySelectorAll('.copy-item').forEach(item => {
+      item.addEventListener('click', () => {
+        navigator.clipboard.writeText(item.getAttribute('data-copy'))
+          .then(() => {
+            item.style.backgroundColor = 'rgba(255,128,0,0.2)';
+            setTimeout(() => item.style.backgroundColor = '', 300);
+          })
+          .catch(err => console.log('خطا در کپی:', err));
+      });
+    });
+  </script>
+
+</body>
+</html>
